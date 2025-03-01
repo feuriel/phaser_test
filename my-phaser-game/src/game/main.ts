@@ -12,6 +12,9 @@ const config: Phaser.Types.Core.GameConfig = {
     width: 800,
     height: 600,
     parent: "game-container",
+    dom: {
+        createContainer: true,
+    },
     backgroundColor: "#028af8",
     scene: [Boot, Preloader, MainMenu, MainGame, GameOver],
     scale: {
@@ -35,7 +38,7 @@ const config: Phaser.Types.Core.GameConfig = {
                 y: 300,
                 x: 0,
             },
-            debug: true,
+            //debug: true,
         },
     },
 };
