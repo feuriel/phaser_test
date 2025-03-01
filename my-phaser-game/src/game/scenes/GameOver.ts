@@ -17,13 +17,16 @@ export class GameOver extends Scene {
         this.background = this.add.image(400, 300, "sky");
         this.background.setAlpha(0.5);
         const restartButton = document.createElement("button");
+        const highScore = localStorage.getItem("phaser_fun_game_star_highscore")
+            ? localStorage.getItem("phaser_fun_game_star_highscore")
+            : "0";
         restartButton.innerText = "Restart";
-        this.add.text(40, 40, "score: 0", {
+        this.add.text(40, 500, "Highscore: " + highScore, {
             fontFamily: "Arial Black",
-            fontSize: 32,
+            fontSize: 20,
             color: "#ffffff",
             stroke: "#000000",
-            strokeThickness: 8,
+            strokeThickness: 6,
             align: "center",
         });
         this.add

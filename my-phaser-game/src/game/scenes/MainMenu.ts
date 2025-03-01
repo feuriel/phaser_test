@@ -35,6 +35,9 @@ export class MainMenu extends Scene {
         this.player = this.physics.add.sprite(100, 450, "dude");
         //this.player.setBounce(0.2);
         this.player.setCollideWorldBounds(true);
+        this.player.setSize(32, 40);
+        this.player.setOffset(0, 8);
+        //this.player.setScale(1, 0.8);
         this.player.body.setGravityY(300);
 
         this.bombs = this.physics.add.group();
@@ -46,7 +49,8 @@ export class MainMenu extends Scene {
 
             player.anims.play("turn");
 
-            this.scene.start("GameOver");
+            this.changeScene();
+            //this.scene.start("GameOver");
         };
         this.physics.add.collider(
             this.player,
@@ -137,7 +141,18 @@ export class MainMenu extends Scene {
     }
 
     changeScene() {
-        this.scene.start("Game");
+        const currentHighScore = localStorage.getItem(
+            "phaser_fun_game_star_highscore"
+        );
+        console.log("here you goooo");
+        const score = this.score;
+        if (!currentHighScore || score > Number(currentHighScore)) {
+            localStorage.setItem(
+                "phaser_fun_game_star_highscore",
+                score.toString()
+            );
+        }
+        this.scene.start("GameOver");
     }
 
     update() {

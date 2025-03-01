@@ -1,6 +1,5 @@
 import { Boot } from "./scenes/Boot";
 import { GameOver } from "./scenes/GameOver";
-import { Game as MainGame } from "./scenes/Game";
 import { MainMenu } from "./scenes/MainMenu";
 import { AUTO, Game } from "phaser";
 import { Preloader } from "./scenes/Preloader";
@@ -16,7 +15,7 @@ const config: Phaser.Types.Core.GameConfig = {
         createContainer: true,
     },
     backgroundColor: "#028af8",
-    scene: [Boot, Preloader, MainMenu, MainGame, GameOver],
+    scene: [Boot, Preloader, MainMenu, GameOver],
     scale: {
         parent: "game-container",
         mode: Phaser.Scale.FIT,
@@ -38,7 +37,7 @@ const config: Phaser.Types.Core.GameConfig = {
                 y: 300,
                 x: 0,
             },
-            //debug: true,
+            debug: true,
         },
     },
 };
