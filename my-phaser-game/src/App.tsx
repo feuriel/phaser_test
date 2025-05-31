@@ -1,3 +1,5 @@
+// @ts-ignore
+import React from "react";
 import { useRef } from "react";
 import { IRefPhaserGame, PhaserGame } from "./game/PhaserGame";
 
